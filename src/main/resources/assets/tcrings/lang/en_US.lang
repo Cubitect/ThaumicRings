@@ -1,0 +1,9 @@
+itemGroup.ThaumicRings=Thaumic Rings
+
+# Items
+item.PrimalRing.name=Primal Ring
+
+tc.research_name.PRIMALRING=Primal Ring
+tc.research_text.PRIMALRING=Lorem ipsum
+
+tcrings.RESEARCH.primal_ring=Lorem ipsum.
