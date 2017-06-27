@@ -48,32 +48,32 @@ public class PrimalRingInfusion extends InfusionRunicAugmentRecipe
     public AspectList getAspects(ItemStack stack) 
     {
         AspectList out = new AspectList();
-        int mult = (int)Math.pow(2, this.getAddedDiscount(stack, this.aspect));
+        int mult = (int)Math.pow(2, this.getUpgradeLevel(stack, this.aspect));
         out.add(Aspect.AURA, 16);
-        out.add(aspect, 32 * mult);
+        out.add(aspect, 64 * mult);
         return out;
     }
     
-    public int getAddedDiscount(ItemStack stack, Aspect aspect)
+    public int getUpgradeLevel(ItemStack stack, Aspect aspect)
     {
-        return ((ItemRingPrimal) stack.getItem()).getAddedDiscount(stack, aspect);
+        return ((ItemRingPrimal) stack.getItem()).getUpgradeLevel(stack, aspect);
     }
     
     public int incDiscount(ItemStack stack, Aspect aspect)
     {
-        int discount = this.getAddedDiscount(stack, aspect) + 1;
-        ((ItemRingPrimal) stack.getItem()).storeDiscount(stack, aspect, discount);
-        return discount;
+        int upgrade = this.getUpgradeLevel(stack, aspect) + 1;
+        ((ItemRingPrimal) stack.getItem()).storeUpgrade(stack, aspect, upgrade);
+        return upgrade;
     }
     
     @Override
     public int getInstability(ItemStack stack) 
     {
-        int instability = this.getAddedDiscount(stack, this.aspect);
+        int instability = this.getUpgradeLevel(stack, this.aspect);
         
         for(Aspect a : Aspect.getPrimalAspects())
         {
-            instability += this.getAddedDiscount(stack, a);
+            instability += this.getUpgradeLevel(stack, a);
         }
         
         return instability;
@@ -85,7 +85,7 @@ public class PrimalRingInfusion extends InfusionRunicAugmentRecipe
         ArrayList<ItemStack> com = new ArrayList<ItemStack>();
         com.add(this.ring);
         com.add(ItemApi.getItem("itemResource", 14));
-        int dis = this.getAddedDiscount(stack, aspect);
+        int dis = this.getUpgradeLevel(stack, aspect);
         if (dis > 0)
         {
             for(int c = 0; c < dis; ++c)

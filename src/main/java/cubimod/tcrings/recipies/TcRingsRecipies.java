@@ -55,7 +55,7 @@ public class TcRingsRecipies
             for(int j = 0; j < exnum; j++)
             {
                 ItemStack ring = new ItemStack(TcRingsItems.ringPrimal);
-                ((ItemRingPrimal) TcRingsItems.ringPrimal).storeDiscount(ring, aspect, j);
+                ((ItemRingPrimal) TcRingsItems.ringPrimal).storeUpgrade(ring, aspect, j);
                 primalExamples[i*exnum + j] = new PrimalRingInfusion(ring, aspect);
             }
         }

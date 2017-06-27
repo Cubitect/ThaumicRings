@@ -52,8 +52,6 @@ public class ItemRingPrimal extends Item implements IRunicArmor, IBauble, IVisDi
     
     public void onEquipped(ItemStack stack, EntityLivingBase player)
     {
-        int discount = this.getAddedDiscount(stack, Aspect.ORDER) + 1;
-        ((ItemRingPrimal) stack.getItem()).storeDiscount(stack, Aspect.ORDER, discount);
     }
     
     public void onUnequipped(ItemStack stack, EntityLivingBase player)
@@ -77,7 +75,7 @@ public class ItemRingPrimal extends Item implements IRunicArmor, IBauble, IVisDi
         return 0;
     }
     
-    public int getAddedDiscount(ItemStack stack, Aspect aspect)
+    public int getUpgradeLevel(ItemStack stack, Aspect aspect)
     {
         int out = 0;
         if(aspect != null && stack.hasTagCompound() && stack.stackTagCompound.hasKey(aspect.getTag()))
@@ -90,21 +88,21 @@ public class ItemRingPrimal extends Item implements IRunicArmor, IBauble, IVisDi
     @Override
     public int getVisDiscount(ItemStack stack, EntityPlayer player, Aspect aspect)
     {
-        int discount = 2 + this.getAddedDiscount(stack, aspect);
+        int discount = 2 + 2 * this.getUpgradeLevel(stack, aspect);
         return discount;
         // return (int)(1.5f + 4.0f * player.worldObj.getCurrentMoonPhaseFactor());
     }
     
-    public void storeDiscount(ItemStack stack, Aspect aspect, int amount)
+    public void storeUpgrade(ItemStack stack, Aspect aspect, int amount)
     {
         stack.setTagInfo(aspect.getTag(), (NBTBase)new NBTTagInt(amount));
     }
     
-    public void clearDiscount(ItemStack stack)
+    public void clearUpgrade(ItemStack stack)
     {
         for(Aspect aspect : Aspect.getPrimalAspects())
         {
-            this.storeDiscount(stack, aspect, 0);
+            this.storeUpgrade(stack, aspect, 0);
         }
     }
     
