@@ -1,7 +1,8 @@
-package cubimod.tcrings.items;
+package cubimod.tcrings.recipies;
 
 import java.util.HashMap;
 
+import cubimod.tcrings.items.TcRingsItems;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import thaumcraft.api.ItemApi;
@@ -16,7 +17,8 @@ public class TcRingsResearch
 {
     public static void addResearch()
     {
-        ResearchPage pagePrimalRing = new ResearchPage(TcRingsRecipies.primalRing);
+        ResearchPage pageCraftPrimalRing = new ResearchPage(TcRingsRecipies.craftPrimalRing);
+        ResearchPage pageUpgradePrimalRing = new ResearchPage(TcRingsRecipies.primalExamples);
         
         ResearchItem researchItem = new ResearchItem("PRIMALRING", "ARTIFICE", 
                 new AspectList()
@@ -25,7 +27,7 @@ public class TcRingsResearch
                     .add(Aspect.ORDER, 3).add(Aspect.WATER, 3)
                     .add(Aspect.MECHANISM, 3), 
                 -2, -1, 0, new ItemStack(TcRingsItems.ringPrimal))
-            .setPages(new ResearchPage("tcrings.RESEARCH.primal_ring"), pagePrimalRing)
+            .setPages(new ResearchPage("tcrings.RESEARCH.primal_ring"), pageCraftPrimalRing, pageUpgradePrimalRing)
             .setParents("BASICARTIFACE")
             .setConcealed()
             .registerResearchItem();

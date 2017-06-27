@@ -7,8 +7,8 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cubimod.tcrings.items.TcRingsItems;
-import cubimod.tcrings.items.TcRingsRecipies;
-import cubimod.tcrings.items.TcRingsResearch;
+import cubimod.tcrings.recipies.TcRingsRecipies;
+import cubimod.tcrings.recipies.TcRingsResearch;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 

@@ -4,6 +4,6 @@ itemGroup.ThaumicRings=Thaumic Rings
 item.PrimalRing.name=Primal Ring
 
 tc.research_name.PRIMALRING=Primal Ring
-tc.research_text.PRIMALRING=Lorem ipsum
+tc.research_text.PRIMALRING=Efficient magic
 
-tcrings.RESEARCH.primal_ring=Lorem ipsum.
+tcrings.RESEARCH.primal_ring=So far you have discovered various items that allow a wearer to use their vis more efficiently. Now you have found a way to combine and concentrate this property into a ring. On its own the new ring grants the wearer a small vis discount for each primal aspect. However, the ring can be made more efficient by infusing additional apprentice rings onto the master ring. Each infusion upgrades the discount of only a single aspect, but there seems to be no limit to the number of upgrades that are applied. Though it does require increasing amounts of essenita after each infusion. 
